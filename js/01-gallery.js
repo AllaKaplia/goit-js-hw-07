@@ -51,7 +51,7 @@ function onGalleryElementClick(evt) {
     instance.show();
 
     evt.currentTarget.addEventListener('keydown', (evt) => {
-        if(evt.key === 'Escape'){
+        if(evt.code === 'Escape'){
             instance.close();
         }
     })
