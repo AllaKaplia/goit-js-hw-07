@@ -4,7 +4,6 @@ import { galleryItems } from './gallery-items.js';
 console.log(galleryItems);
 
 const galleryEl = document.querySelector('.gallery');
-console.log(galleryEl);
 
 const markupGallery = galleryItems.map(({preview, original, description}) => {
     return`
@@ -34,9 +33,7 @@ function onGalleryElementClick(evt) {
     }
 
     const sourceImage = target.dataset.source ?? target.closest('img').dataset.source;
-    console.log(sourceImage);
     const currentOriginal = galleryItems.find(({original}) => original === sourceImage);
-    console.log(currentOriginal);
 
     const instance = basicLightbox.create(`
     <li class="gallery__item">
