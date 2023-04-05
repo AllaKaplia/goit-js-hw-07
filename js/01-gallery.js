@@ -22,6 +22,7 @@ const markupGallery = galleryItems.map(({preview, original, description}) => {
 galleryEl.insertAdjacentHTML('beforeend', markupGallery.join(''));
 galleryEl.addEventListener('click', onGalleryElementClick);
 
+
 function onGalleryElementClick(evt) {
     const { target } = evt;
     if(!target.classList.contains('gallery__image')){
