@@ -36,23 +36,17 @@ function onGalleryElementClick(evt) {
     const currentOriginal = galleryItems.find(({original}) => original === sourceImage);
 
     const instance = basicLightbox.create(`
-    <li class="gallery__item">
-        <a class="gallery__link" href="${currentOriginal.original}">
-        <img
-            class="gallery__image"
-            src="${currentOriginal.preview}"
-            data-source="${currentOriginal.original}"
-            alt="${currentOriginal.description}"
-        />
-        </a>
-    </li>
-    `)
+        <img src="${evt.target.dataset.source}" width="800" height="600">
+    `,  {
+        onShow: () => window.addEventListener('keydown', onEscapeCodeClick),
+        onClose: () => window.removeEventListener('keydown', onEscapeCodeClick),
+    });
 
     instance.show();
 
-    evt.currentTarget.addEventListener('keydown', (evt) => {
+    function onEscapeCodeClick(evt) {
         if(evt.code === 'Escape'){
             instance.close();
         }
-    })
+    }
 }
